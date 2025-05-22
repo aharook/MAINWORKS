@@ -80,6 +80,7 @@ def buy_artifact(artifact):
         messagebox.showerror("Помилка", "Недостатньо грошей!")
 
 # Головне вікно
+#gitcoomit
 root = tk.Tk()
 root.title("Зона Відчуження")
 root.geometry("600x400")
