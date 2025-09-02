@@ -8,16 +8,16 @@ class figure:
     def __del__(self):  # деструктор
         print('Destructor called, Employee deleted.')
 
-    @property
+
     def Area(self):   # публічна властивість
         return 100 
 
     def GetFigure(self):    # get figure
-        return f"Figure: {self.name}, radius = {self.__radius}, Area = {self.Area}"
+        return f"Figure: {self.name}, radius = {self.__radius}, Area = {self.Area()}"
 
 
 obj1 = figure()
 print(obj1.GetFigure())
-print("Area:", obj1.Area)
+print("Area:", obj1.Area())
 del obj1
 
