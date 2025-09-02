@@ -1,5 +1,4 @@
 
-
 class figure:
     def __init__(self, name="cirle", radius=12): # конструктор
         self.name = name
@@ -19,5 +18,5 @@ class figure:
 obj1 = figure()
 print(obj1.GetFigure())
 print("Area:", obj1.Area())
-del obj1
+del obj1 # виклик деструктора
 

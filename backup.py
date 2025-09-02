@@ -1,11 +1,21 @@
-import numpy as np
-a = int(input("Введіть початок діапазону: "))
-b = int(input("Введіть кінець діапазону: "))
-c = input("Введіть число, яке буде додано до суми елементів масиву: ")
-randomNumbers = np.random.randint(a, b, 10)
-print("Основні 10 значень масиву:")
-for i in range(10):
-    print(f"Index: {i}, Number: {randomNumbers[i]}")
-np.sum(randomNumbers )
-sumc = np.sum(randomNumbers)+ int(c)
-print("Сума всіх елементів масиву:", np.sum(randomNumbers), "сума з додаванням с: ",sumc)
+class figure:
+ 
+    def __init__(self, name="cirle", radius=12): # конструктор
+        self.name = name
+        self.__radius = radius # приватна властивість(моє хехе)
+
+    def __del__(self):  # деструктор
+        print('Destructor called, Employee deleted.')
+    def Area(self):   # публічна властивість
+        return 100
+    def GetFigure(self):
+        return f"Figure: {self.name}, radius = {self.__radius}, Area = {self.Area()}"    # get figure
+    
+obj1 = figure()
+print(obj1.GetFigure())
+del obj1
+
+
+
+
+
