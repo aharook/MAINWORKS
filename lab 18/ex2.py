@@ -4,35 +4,38 @@ import numpy as np
 start_def = 0
 stop_def = 1
 step_def = 0.1
-f1 = 0
-f2 = 0 
+
+def get_valid_float_input(prompt, default):
+    while True:
+        value = input(prompt)
+        if value.strip() == "":
+            print(f"Використано значення за замовчуванням: {default}")
+            return default
+        try:
+            return float(value)
+        except ValueError:
+            print(" Некоректне значення. Спробуйте ще раз.")
+
+start = get_valid_float_input("Введіть початок відліку (start) або лишіть рядок пустим: ", start_def)
+stop = get_valid_float_input("Введіть кінець відліку (stop) або лишіть рядок пустим: ", stop_def)
+step = get_valid_float_input("Введіть крок (step) або лишіть рядок пустим: ", step_def)
 
 
+if step == 0:
+    print(" Крок не може бути нульовим.")
+    exit()
 
-def correct_input(value, default):
+print("Результати обчислень:")
+print(f"{'i':>8} | {'f1':>12} | {'f2':>12}")
+print("-" * 36)
+
+for i in np.arange(start, stop, step):
     try:
-        value = float(value)  
-        return value
-    except ValueError:
-        print(f"Некоректне значення. Використовується значення за замовчуванням: {default}")
-        return default  
+        expr = m.cos(i ** 2 - 2 ** -i)
+        f1 = m.sin(expr)
+        f2 = m.tan(expr ** 2)
 
-start = input("Введіть початок відліку або лишіть рядок пустим щоб використати значення дефолту: ")
-start = correct_input(start, start_def)
-stop = input("Введіть кінець відліку  або лишіть рядок пустим щоб використати значення дефолту: ")
-stop = correct_input(stop, stop_def)
-step = input("Введіть крок  або лишіть рядок пустим щоб використати значення дефолту: ")
-step = correct_input(step, step_def)
-
-
-for i in np.arange(start, stop, step):
-    f1 = m.sin(m.cos(pow(start, 2) - pow(2, -start )))
-
-
-for i in np.arange(start, stop, step):
-    f2 = m.tan(pow(m.cos(pow(start, 2) - pow(2, -start )),2))
-
-print(f"Результат обчислення f1: {f1:.4f}")
-print(f"Результат обчислення f2: {f2:.4f}")
-
+        print(f"{i:8.4f} | {f1:12.6f} | {f2:12.6f}")
+    except Exception as e:
+        print(f"{i:8.4f} | Помилка: {e}")
 
