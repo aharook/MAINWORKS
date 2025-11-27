@@ -9,8 +9,6 @@ hungruy = 0
 armor = 0
 ammo = {
     "Пістолет": 10,
-    "Автомат": 0,
-    "Снайперська гвинтівка": 0
 }
 bg = "#2b2b2b"
 
@@ -185,7 +183,8 @@ root.title("Зона Відчуження")
 root.geometry("600x450")
 root.config(bg=bg)
 
-tk.Label(root, text="🎮 Вітаємо в Ceлі Новачків", font=("Arial", 18), bg=bg, fg="white").pack(pady=20)
+tk.Label(root, text="🎮 Вітаємо на початку нашої подорожі", font=("Arial", 18), bg=bg, fg="white").pack(pady=20)
+tk.Label(root, text="Теперішня Локація: Село новачків", font=("Arial", 12), bg=bg, fg="white").pack(pady=20)
 stats = tk.Label(root, text="", font=("Arial", 13), bg=bg, fg="lightgray")
 stats.pack(pady=10)
 update_stats()
